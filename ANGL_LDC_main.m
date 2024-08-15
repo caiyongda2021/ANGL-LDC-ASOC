@@ -7,7 +7,7 @@ clear;clc
 %environment setting
 addpath 'datasets'
 addpath 'functions'
-name = 'covtype_uni.mat';
+name = 'D31.mat';
 starttime = tic;
 result_iter = 1;
 
@@ -24,14 +24,14 @@ while(result_iter<21)
     X_old = X_old-repmat(mean(X_old),[num_old,1]);
 
     %%medium-scale data set
-    %[y, X_VQ, ~, sumD, ~] = litekmeans(X_old, num_VQ);
+    [y, X_VQ, ~, sumD, ~] = litekmeans(X_old, num_VQ);
     
     %%large-scale data set
-    sample_anchor = randperm(num_old,num_VQ*200);
-    X_anchor = X_old(sample_anchor,:);
-    [~, X_VQ, ~, sumD, ~] = litekmeans(X_anchor, num_VQ);
-    dist_XVQ = L2_distance_1(X_old',X_VQ');
-    [~,y] = find(dist_XVQ==(min(dist_XVQ'))');
+    %sample_anchor = randperm(num_old,num_VQ*200);
+    %X_anchor = X_old(sample_anchor,:);
+    %[~, X_VQ, ~, sumD, ~] = litekmeans(X_anchor, num_VQ);
+    %dist_XVQ = L2_distance_1(X_old',X_VQ');
+    %[~,y] = find(dist_XVQ==(min(dist_XVQ'))');
     
     w = hist(y, num_VQ);
     S = zeros(num_VQ);
