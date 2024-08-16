@@ -7,7 +7,7 @@ clear;clc
 %environment setting
 addpath 'datasets'
 addpath 'functions'
-name = 'D31.mat';
+name = 'DS7.mat';
 starttime = tic;
 result_iter = 1;
 
